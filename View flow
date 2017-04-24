@@ -1,0 +1,34 @@
+/* @startuml
+   [*] --> Initialize
+   Initialize : Display welcome screen.
+   Initialize : Play welcome sound.
+   Initialize : Control stadium lighting (welcome animation)
+   Initialize --> Ready_to_Play
+   Ready_to_Play : Display game start screen.
+   Ready_to_Play : Play starting whistle
+   Ready_to_Play : Control stadium lighting
+   Ready_to_Play --> Match
+   state Match {
+   Match : Display score
+   Match : Detect goal
+   Match : Detect tilt
+   Match : Control stadium lighting
+   Match --> Score : Goal detected event
+   Score : Display score screen
+   Score : Play score sound
+   Score : Control stadium lighting (score amination)
+   Score --> Match : Timeout
+   Match --> Tilt : Tilt detected event
+   Tilt : Display tilt screen
+   Tilt : Play tilt sound
+   Tilt : Control stadium lighting (tilt amination)
+   Tilt --> Match : Timeout
+   Match --> End_Of_The_Game : Tenth goal scored
+   End_Of_The_Game : Display Winner screen
+   End_Of_The_Game : Play end of the game sound
+   End_Of_The_Game : Control stadium lighting (end of the game amination)
+   End_Of_The_Game --> Initialize : Timeout
+   }
+   @enduml
+
+ */
